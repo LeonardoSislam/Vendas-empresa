@@ -1,0 +1,37 @@
+<h1>Lista de produtos Vendidos</h1>
+
+<%= link_to 'Realizar nova compra', new_venda_path %>
+
+<br>
+<br>
+
+<table>
+  <tr>
+    <th>Nome do comprador | </th>
+    <th>Nome do produto | </th>
+    <th>Valor de cada item | </th>
+    <th>Descrição Produto | </th>
+    <th>Quantidade itens | </th>
+    <th>Valor total | </th>
+    <th>Endereço | </th>
+    <th>Botões de ação</th>
+  </tr>
+
+  <% @venda.each do |vendas| %>
+    <tr>
+      <td><%= vendas.comprador %></td>
+      <td><%= vendas.nomeproduto %></td>
+      <td><%= vendas.valoritemunitario %></td>
+      <td><%= vendas.descricaoproduto %></td>
+      <td><%= vendas.quantidade %></td>
+      <td><%= vendas.valoritens %></td>
+      <td><%= vendas.endereço %></td>
+      <td><%= link_to 'Mostrar', venda_path(vendas) %>
+          <%= link_to 'Editar', edit_venda_path(vendas) %>
+          <%= link_to 'Deletar', venda_path(vendas),
+                method: :delete,
+                data: { confirm: 'Você tem certeza que deseja deletar esta compra?' } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

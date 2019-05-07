@@ -1,0 +1,41 @@
+<h1>Detalhe Compra</h1>
+<p>
+  <strong>comprador:</strong>
+  <%= @venda.comprador %>
+</p>
+
+<p>
+  <strong>nomeproduto:</strong>
+  <%= @venda.nomeproduto %>
+</p>
+
+<p>
+  <strong>valoritemunitario:</strong>
+  <%= @venda.valoritemunitario %>
+</p>
+
+<p>
+  <strong>descricaoproduto:</strong>
+  <%= @venda.descricaoproduto %>
+</p>
+
+<p>
+  <strong>quantidade:</strong>
+  <%= @venda.quantidade %>
+</p>
+
+<p>
+  <strong>valoritens:</strong>
+  <%= @venda.valoritens %>
+</p>
+
+<p>
+  <strong>endereço:</strong>
+  <%= @venda.endereço %>
+</p>
+
+<br>
+<br>
+
+<%= link_to ' < Voltar', vendas_path %>
+<%= link_to 'Editar', edit_venda_path(@venda) %>

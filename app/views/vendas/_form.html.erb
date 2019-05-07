@@ -1,0 +1,55 @@
+<%= form_with(model: @venda, local: true) do |form| %>
+
+  <% if @venda.errors.any? %>
+    <div id="error_explanation">
+      <h3>
+        <%= pluralize(@venda.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h3>
+      <ul>
+        <% @venda.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :comprador %><br>
+    <%= form.text_field :comprador %>
+  </p>
+
+  <p>
+    <%= form.label :nome_produto %><br>
+    <%= form.text_field :nomeproduto %>
+  </p>
+
+  <p>
+    <%= form.label :valor_item_unitario %><br>
+    <%= form.text_field :valoritemunitario %>
+  </p>
+
+  <p>
+    <%= form.label :descrição_produto%><br>
+    <%= form.text_area :descricaoproduto %>
+  </p>
+
+  <p>
+    <%= form.label :quantidade %><br>
+    <%= form.text_field :quantidade %><br>
+  </p>
+
+  <p>
+    <%= form.label :valor_itens %><br>
+    <%= form.text_field :valoritens %>
+  </p>
+
+  <p>
+    <%= form.label :endereço %><br>
+    <%= form.text_field :endereço %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
