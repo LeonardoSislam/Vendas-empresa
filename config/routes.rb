@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'welcome/index'
 
-  resources :vendas
+  resources :vendas do
+    collection { post :parse_csv}
+  end
 
   root 'welcome#index'
 
