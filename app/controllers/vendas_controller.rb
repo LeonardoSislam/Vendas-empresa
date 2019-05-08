@@ -1,6 +1,6 @@
 class VendasController < ApplicationController
 
-  http_basic_authenticate_with name: "admin", password: "123", except: [:index, :show]
+  # http_basic_authenticate_with name: "admin", password: "123", except: [:index, :show]
 
   def index
     @venda = Venda.all
@@ -28,6 +28,16 @@ class VendasController < ApplicationController
     end
   end
 
+  def update
+    @venda = Venda.find(params[:id])
+
+    if @venda.update(article_params)
+      redirect_to @venda
+    else
+      render 'edit'
+    end
+  end
+
   def destroy
     @venda = Venda.find(params[:id])
     @venda.destroy
@@ -36,7 +46,7 @@ class VendasController < ApplicationController
   end
 
   private
-  def article_params
-    params.require(:vendas).permit(:comprador, :nomeproduto, :valoritemunitario, :descricaoproduto, :quantidade, :valoritens, :endereço)
-  end
+    def article_params
+      params.require(:venda).permit(:comprador, :nomeproduto, :valoritemunitario, :descricaoproduto, :quantidade, :valoritens, :endereço)
+    end
 end
