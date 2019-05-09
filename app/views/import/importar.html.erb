@@ -1,7 +1,19 @@
-<h1>tabela de importação</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>tabela de importação</h2>
 
-<%= form_tag parse_csv_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <br><br>
-  <%= submit_tag("Importar") %>
-<% end %>
+    <%= form_tag parse_csv_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <br><br>
+      <%= submit_tag("Importar") %>
+    <% end %>
+    <br><br>
+
+    <a href="/vendas"> <button type="button" class="button button1"> Voltar </button> </a>
+  </body>
+</html>

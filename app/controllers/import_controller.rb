@@ -11,7 +11,7 @@ class ImportController < ApplicationController
         Venda.create!(comprador: linha[0], nomeproduto: linha[1], valoritemunitario: linha[2], descricaoproduto: linha[3], quantidade: linha[4], valoritens: linha[5], endereço: linha[6], )
       end
     end
-    redirect_to vendas_path, notice: "importação concluida!"
+    redirect_to vendas_path
   end
 
 end

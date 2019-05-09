@@ -1,23 +1,25 @@
-<h1>Lista de produtos Vendidos</h1>
+<h2>Lista de produtos Vendidos</h2>
 
-<%= link_to 'Realizar nova compra', new_venda_path %>
+<br>
+<br>
 
+<%= form_tag parse_csv_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <br><br>
+  <%= submit_tag("Importar") %>
+<% end %>
 <br><br>
 
-<%= link_to 'Importar lista', importar_path %>
 
-<br>
-<br>
-
-<table>
+<table id="customers">
   <tr>
-    <th>Nome do comprador | </th>
-    <th>Nome do produto | </th>
-    <th>Valor de cada item | </th>
-    <th>Descrição Produto | </th>
-    <th>Quantidade itens | </th>
-    <th>Valor total | </th>
-    <th>Endereço | </th>
+    <th>Nome do comprador </th>
+    <th>Nome do produto </th>
+    <th>Valor de cada item </th>
+    <th>Descrição Produto </th>
+    <th>Quantidade itens </th>
+    <th>Valor total </th>
+    <th>Endereço </th>
     <th>Botões de ação</th>
   </tr>
 

@@ -8,6 +8,11 @@ class VendasController < ApplicationController
 
   def show
     @venda = Venda.find(params[:id])
+      if @venda.nil?
+        @venda = Venda.açç
+        flash.now[:alert] = "Sem Venda"
+        render "new"
+      end
   end
 
   def new

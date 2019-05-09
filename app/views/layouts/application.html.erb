@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VendasEmpresa</title>
+    <title>Vendas teste Empresa</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+
+      <div >
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+          <a href="/"><button type="button" class="button button1"> Inicio </button></a>
+          <a href="/vendas/new"><button type="button" class="button button1">Realizar nova compra </button></a>
+          <a href="/importar"><button type="button" class="button button1"> Importar lista </button></a>
+              <input class="form-control mr-sm-2" type="text" placeholder="importe um arquivo .CSV">
+              <button class="button button1" type="submit">Importar</button>
+        </nav>
+      </div>
+
+    </header>
+
+    <br><br>
+
+    <div class="container"><%= yield %></div>
+
+    <footer>
+      <div class="container">
+        Vendas para loja ...
+      </div>
+    </footer>
   </body>
 </html>

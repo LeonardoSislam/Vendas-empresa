@@ -1,4 +1,4 @@
-<h1>Detalhe Compra</h1>
+<h2>Detalhe Compra</h2>
 <p>
   <strong>comprador:</strong>
   <%= @venda.comprador %>
@@ -36,7 +36,7 @@
 
 <br>
 <br>
-
-<%= link_to ' < Voltar', vendas_path %>
-<br><br>
-<%= link_to 'Editar', edit_venda_path(@venda) %>
+<div>
+  <button> <%= link_to ' < Voltar', vendas_path %> </button>
+  <button> <%= link_to 'Editar', edit_venda_path(@venda) %> </button>
+</div>
