@@ -1,56 +1,92 @@
-<%= form_with(model: @venda, local: true) do |form| %>
+  <%= simple_form_for @venda do |f| %>
+      <div class="row">
+        <%= f.input :comprador, label: 'Nome Comprador', wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
+        <%= f.input :nomeproduto, label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
+      </div>
 
-  <% if @venda.errors.any? %>
-    <div id="error_explanation">
-      <h3>
-        <%= pluralize(@venda.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h3>
-      <ul>
-        <% @venda.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
+      <div class="row">
+        <%= f.input :valoritemunitario, wrapper_html: { class: 'col-sm-4' }, hint: 'You cannot change your username.'  %>
+        <%= f.input :descricaoproduto, wrapper_html: { class: 'col-sm-4' }%>
+      </div>
+
+      <div class="row">
+        <%= f.input :quantidade, as: :string, wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
+        <%= f.input :valoritens, wrapper_html: { class: 'col-sm-3' }%>
+        <%= f.input :endereço, wrapper_html: { class: 'col-sm-3' }%>
+      </div>
+    <%= f.submit 'Salvar compra', wrapper_html: { class: "btn btn-outline-success"} %>
+
   <% end %>
+<br>
 
+# #########################  ####  ####   #####  ####  ######
+<%= form_with(model: @venda, local: true) do |form| %>
+  <form>
+    <div class="form-group row">
+      <%= form.label :Nome_Comprador, class: "col-sm-2 col-form-label"%>
+      <div>
+        <%= form.text_field :comprador, class: "form-control", placeholder:"Nome" %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :comprador %><br>
-    <%= form.text_field :comprador %>
-  </p>
+    <div class="form-group row">
+      <%= form.label :nome_produto, class: "col-sm-2 col-form-label" %>
+      <div>
+        <%= form.text_field :nomeproduto, class: "form-control" %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :nome_produto %><br>
-    <%= form.text_field :nomeproduto %>
-  </p>
+    <div class="form-group row">
+      <%= form.label :Valor_unitario, class: "col-sm-2 col-form-label" %>
+      <div>
+        <%= form.text_field :valoritemunitario, class: "form-control" %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :valor_item_unitario %><br>
-    <%= form.text_field :valoritemunitario %>
-  </p>
+    <div class="form-group row">
+      <%= form.label :descrição_produto, class: "col-sm-2 col-form-label" %>
+      <div>
+        <%= form.text_area :descricaoproduto, class: "form-control" %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :descrição_produto%><br>
-    <%= form.text_area :descricaoproduto, size: "30x10" %>
-  </p>
+    <div class="form-group row">
+      <%= form.label :quantidade, class: "col-sm-2 col-form-label" %>
+      <div>
+        <%= form.text_field :quantidade, class: "form-control" %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :quantidade %><br>
-    <%= form.text_field :quantidade %><br>
-  </p>
+    <div class="form-group row">
+      <%= form.label :valor_total_itens, class: "col-sm-2 col-form-label" %>
+      <div>
+        <%= form.text_field :valoritens, class: "form-control" %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :valor_itens %><br>
-    <%= form.text_field :valoritens %>
-  </p>
+    <div class="form-group row">
+      <%= form.label :endereço, class: "col-sm-2 col-form-label" %>
+      <div>
+        <%= form.text_field :endereço, class: "form-control" %>
+      </div>
+    </div>
 
-  <p>
-    <%= form.label :endereço %><br>
-    <%= form.text_field :endereço %>
-  </p>
+    <div>
+      <%= form.submit 'Salvar compra', class: "btn btn-outline-success" %>
+    </div>
+  </form>
+<% end %>
 
-  <p>
-    <%= form.submit %>
-  </p>
+<% if @venda.errors.any? %>
+  <div id="error_explanation">
+    <h3>
+      <%= pluralize(@venda.errors.count, "error") %> prohibited
+      this article from being saved:
+    </h3>
+    <ul>
+      <% @venda.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>

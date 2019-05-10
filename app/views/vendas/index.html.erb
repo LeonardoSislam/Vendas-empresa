@@ -1,27 +1,22 @@
 <h2>Lista de produtos Vendidos</h2>
 
 <br>
-<br>
 
-<%= form_tag parse_csv_path, multipart: true do %>
-  <%= file_field_tag :file %>
-  <br><br>
-  <%= submit_tag("Importar") %>
-<% end %>
-<br><br>
+<table class="table table-striped table-hover" >
+  <thead style="background-color: #4CAF50">
+    <tr>
+      <th>Nome do comprador </th>
+      <th>Nome do produto </th>
+      <th>Valor de cada item </th>
+      <th>Descrição Produto </th>
+      <th>Quantidade itens </th>
+      <th>Valor total </th>
+      <th>Endereço </th>
+      <th>Botões de ação</th>
+    </tr>
+  </thead>
 
-
-<table id="customers">
-  <tr>
-    <th>Nome do comprador </th>
-    <th>Nome do produto </th>
-    <th>Valor de cada item </th>
-    <th>Descrição Produto </th>
-    <th>Quantidade itens </th>
-    <th>Valor total </th>
-    <th>Endereço </th>
-    <th>Botões de ação</th>
-  </tr>
+<tbody>
 
   <% @venda.each do |vendas| %>
     <tr>
@@ -32,12 +27,19 @@
       <td><%= vendas.quantidade %></td>
       <td><%= vendas.valoritens %></td>
       <td><%= vendas.endereço %></td>
-      <td><%= link_to 'Mostrar', venda_path(vendas) %>
-          <%= link_to 'Editar', edit_venda_path(vendas) %>
-          <%= link_to 'Deletar', venda_path(vendas),
-                method: :delete,
-                data: { confirm: 'Você tem certeza que deseja deletar esta compra?' } %>
+      <td><%= link_to venda_path(vendas) do %>
+            <i class="far fa-eye" style="font-size:20px;color:black"></i>
+          <% end %>
+
+          <%= link_to edit_venda_path(vendas) do %>
+              <i class="fas fa-pencil-alt" style="font-size:20px;color:blue"></i>
+          <% end %>
+
+          <%= link_to venda_path(vendas),method: :delete, data: { confirm: 'Você tem certeza que deseja deletar esta compra?' } do %>
+              <i class="far fa-trash-alt" style="font-size:20px;color:red"></i>
+          <% end %>
       </td>
     </tr>
   <% end %>
+  </tbody>
 </table>

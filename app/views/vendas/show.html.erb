@@ -1,42 +1,45 @@
 <h2>Detalhe Compra</h2>
-<p>
-  <strong>comprador:</strong>
-  <%= @venda.comprador %>
-</p>
 
-<p>
-  <strong>nomeproduto:</strong>
-  <%= @venda.nomeproduto %>
-</p>
+<form>
+  <div>
+    <strong>comprador:</strong>
+    <%= @venda.comprador %>
+  </div>
 
-<p>
-  <strong>valoritemunitario:</strong>
-  <%= @venda.valoritemunitario %>
-</p>
+  <div>
+    <strong>nomeproduto:</strong>
+    <%= @venda.nomeproduto %>
+  </div>
 
-<p>
-  <strong>descricaoproduto:</strong>
-  <%= @venda.descricaoproduto %>
-</p>
+  <div>
+    <strong>valoritemunitario:</strong>
+    <%= @venda.valoritemunitario %>
+  </div>
 
-<p>
-  <strong>quantidade:</strong>
-  <%= @venda.quantidade %>
-</p>
+  <div>
+    <strong>descricaoproduto:</strong>
+    <%= @venda.descricaoproduto %>
+  </div>
 
-<p>
-  <strong>valoritens:</strong>
-  <%= @venda.valoritens %>
-</p>
+  <div>
+    <strong>quantidade:</strong>
+    <%= @venda.quantidade %>
+  </div>
 
-<p>
-  <strong>endereço:</strong>
-  <%= @venda.endereço %>
-</p>
+  <div>
+    <strong>valoritens:</strong>
+    <%= @venda.valoritens %>
+  </div>
 
-<br>
-<br>
-<div>
-  <button> <%= link_to ' < Voltar', vendas_path %> </button>
-  <button> <%= link_to 'Editar', edit_venda_path(@venda) %> </button>
-</div>
+  <div>
+    <strong>endereço:</strong>
+    <%= @venda.endereço %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= link_to 'Voltar', vendas_path, class: "btn btn-outline-success" %>
+    <%= link_to 'Editar', edit_venda_path(@venda), class: "btn btn-outline-success" %>
+  </div>
+</form>
