@@ -1,45 +1,49 @@
 <h2>Detalhe Compra</h2>
 
 <form>
-  <div>
-    <strong>comprador:</strong>
-    <%= @venda.comprador %>
-  </div>
+  <div class="card border-success mb-3 ">
+    <div class="card-body ">
+      <div>
+        <strong>Nome do Comprador:</strong>
+        <%= @venda.comprador %>
+      </div>
 
-  <div>
-    <strong>nomeproduto:</strong>
-    <%= @venda.nomeproduto %>
-  </div>
+      <div>
+        <strong>Nome do Produto:</strong>
+        <%= @venda.nomeproduto %>
+      </div>
 
-  <div>
-    <strong>valoritemunitario:</strong>
-    <%= @venda.valoritemunitario %>
-  </div>
+      <div>
+        <strong>Valor de Cada Item:</strong>
+        R$ <%= @venda.valoritemunitario %>
+      </div>
 
-  <div>
-    <strong>descricaoproduto:</strong>
-    <%= @venda.descricaoproduto %>
-  </div>
+      <div>
+        <strong>Descrição do Produto:</strong>
+        <%= @venda.descricaoproduto %>
+      </div>
 
-  <div>
-    <strong>quantidade:</strong>
-    <%= @venda.quantidade %>
-  </div>
+      <div>
+        <strong>Quantidade de Itens:</strong>
+        <%= @venda.quantidade %> Uni.
+      </div>
 
-  <div>
-    <strong>valoritens:</strong>
-    <%= @venda.valoritens %>
-  </div>
+      <div>
+        <strong>Valor Total:</strong>
+        R$ <%= @venda.quantidade * @venda.valoritemunitario %>
+      </div>
 
-  <div>
-    <strong>endereço:</strong>
-    <%= @venda.endereço %>
-  </div>
+      <div>
+        <strong>Endereço:</strong>
+        <%= @venda.endereço %>
+      </div>
 
-  <br>
+      <br>
 
-  <div>
-    <%= link_to 'Voltar', vendas_path, class: "btn btn-outline-success" %>
-    <%= link_to 'Editar', edit_venda_path(@venda), class: "btn btn-outline-success" %>
+      <div class="text-center">
+        <%= link_to 'Voltar', vendas_path, class: "btn btn-outline-success" %>
+        <%= link_to 'Editar', edit_venda_path(@venda), class: "btn btn-outline-success" %>
+      </div>
+    </div>
   </div>
 </form>

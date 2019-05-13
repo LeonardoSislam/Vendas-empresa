@@ -19,7 +19,7 @@
     <header>
 
       <div >
-        <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+        <nav class="navbar navbar-expand-sm bg-dark justify-content-center">
           <ul class="navbar-nav">
             <li class="nav-item">
               <%= link_to 'Inicio', vendas_path, class: "btn btn-outline-success" %>
@@ -40,11 +40,12 @@
 
       <br>
       <div class="container-fluid"><%= yield %></div>
-      
+
     </body>
 
     <footer>
-      <div class="container">
+      <br>
+      <div class="card-footer text-muted text-center bg-dark">
         Vendas para loja ...
       </div>
     </footer>

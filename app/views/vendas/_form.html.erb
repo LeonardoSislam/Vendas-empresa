@@ -1,81 +1,61 @@
-  <%= simple_form_for @venda do |f| %>
-      <div class="row">
-        <%= f.input :comprador, label: 'Nome Comprador', wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
-        <%= f.input :nomeproduto, label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
-      </div>
+<script >
+  function id(el) {
+    return document.getElementById( el );
+  }
+  function total( un, qnt ) {
+    return parseFloat(un.replace(',', '.'), 10) * parseFloat(qnt.replace(',', '.'), 10);
+  }
+  window.onload = function() {
+    id('valoritemunitario').addEventListener('keyup', function() {
+      var valoritens = total( this.value , id('quantidade').value );
+      id('valoritens').value = String(valoritens.toFixed(2)).formatMoney();
+    });
+    id('quantidade').addEventListener('keyup', function(){
+      var valoritens = total( id('valoritemunitario').value , this.value );
+      id('valoritens').value = String(valoritens.toFixed(2)).formatMoney();
+    });
+  }
+  String.prototype.formatMoney = function() {
+    var v = this;
+    if(v.indexOf('.') === -1) {
+      v = v.replace(/([\d]+)/, "$1,00");
+    }
+    v = v.replace(/([\d]+)\.([\d]{1})$/, "$1,$20");
+    v = v.replace(/([\d]+)\.([\d]{2})$/, "$1,$2");
+    v = v.replace(/([\d]+)([\d]{3}),([\d]{2})$/, "$1.$2,$3");
+    return v;
+  };
+</script>
 
-      <div class="row">
-        <%= f.input :valoritemunitario, wrapper_html: { class: 'col-sm-4' }, hint: 'You cannot change your username.'  %>
-        <%= f.input :descricaoproduto, wrapper_html: { class: 'col-sm-4' }%>
-      </div>
+<form class="text-center">
+    Valor Unitário: <input id="valoritemunitario" />
+    Quantidade: <input id="quantidade" value="0" />
+    Total: R$ <input id="valoritens" readonly="readonly" />
 
-      <div class="row">
-        <%= f.input :quantidade, as: :string, wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
-        <%= f.input :valoritens, wrapper_html: { class: 'col-sm-3' }%>
-        <%= f.input :endereço, wrapper_html: { class: 'col-sm-3' }%>
-      </div>
-    <%= f.submit 'Salvar compra', wrapper_html: { class: "btn btn-outline-success"} %>
-
-  <% end %>
-<br>
-
-# #########################  ####  ####   #####  ####  ######
-<%= form_with(model: @venda, local: true) do |form| %>
-  <form>
-    <div class="form-group row">
-      <%= form.label :Nome_Comprador, class: "col-sm-2 col-form-label"%>
-      <div>
-        <%= form.text_field :comprador, class: "form-control", placeholder:"Nome" %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= form.label :nome_produto, class: "col-sm-2 col-form-label" %>
-      <div>
-        <%= form.text_field :nomeproduto, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= form.label :Valor_unitario, class: "col-sm-2 col-form-label" %>
-      <div>
-        <%= form.text_field :valoritemunitario, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= form.label :descrição_produto, class: "col-sm-2 col-form-label" %>
-      <div>
-        <%= form.text_area :descricaoproduto, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= form.label :quantidade, class: "col-sm-2 col-form-label" %>
-      <div>
-        <%= form.text_field :quantidade, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= form.label :valor_total_itens, class: "col-sm-2 col-form-label" %>
-      <div>
-        <%= form.text_field :valoritens, class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="form-group row">
-      <%= form.label :endereço, class: "col-sm-2 col-form-label" %>
-      <div>
-        <%= form.text_field :endereço, class: "form-control" %>
-      </div>
-    </div>
-
-    <div>
-      <%= form.submit 'Salvar compra', class: "btn btn-outline-success" %>
-    </div>
   </form>
-<% end %>
+<br>
+  <%= simple_form_for @venda do |f| %>
+      <div class="card border-success mb-3" >
+        <div class="card-body ">
+          <div class="row ">
+            <%= f.input :comprador, label: 'Nome Comprador', wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
+            <%= f.input :nomeproduto, label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
+            <%= f.input :valoritemunitario, label: 'Valor Unitário (R$)', wrapper_html: { class: 'col-sm-3' } %>
+          </div>
+          <div class="row">
+            <%= f.input :quantidade, label: 'Quantidade', wrapper_html: { class: 'col-sm-3' } %>
+            <%= f.input :valoritens, label: 'Valor Total (R$)', disabled: true, wrapper_html: { class: 'col-sm-3'}%>
+            <%= f.input :endereço, label: 'Endereço Entrega', as: :string, wrapper_html: { class: 'col-sm-3' }%>
+          </div>
+          <div class="row">
+            <%= f.input :descricaoproduto, label: 'Descrição Produto', wrapper_html: { class: 'col-sm-4' }%>
+          </div>
+          <div class="text-center">
+            <%= f.submit 'Salvar compra', class: "btn btn-outline-success" %>
+          </div>
+        </div>
+      </div>
+  <% end %>
 
 <% if @venda.errors.any? %>
   <div id="error_explanation">

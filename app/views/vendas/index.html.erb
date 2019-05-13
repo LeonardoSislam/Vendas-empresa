@@ -2,7 +2,7 @@
 
 <br>
 
-<table class="table table-striped table-hover" >
+<table class="table table-striped table-hover text-center">
   <thead style="background-color: #4CAF50">
     <tr>
       <th>Nome do comprador </th>
@@ -22,10 +22,10 @@
     <tr>
       <td><%= vendas.comprador %></td>
       <td><%= vendas.nomeproduto %></td>
-      <td><%= vendas.valoritemunitario %></td>
+      <td> R$ <%= vendas.valoritemunitario %></td>
       <td><%= vendas.descricaoproduto %></td>
-      <td><%= vendas.quantidade %></td>
-      <td><%= vendas.valoritens %></td>
+      <td><%= vendas.quantidade %> uni.</td>
+      <td> R$ <%= vendas.valoritemunitario * vendas.quantidade %></td>
       <td><%= vendas.endereço %></td>
       <td><%= link_to venda_path(vendas) do %>
             <i class="far fa-eye" style="font-size:20px;color:black"></i>

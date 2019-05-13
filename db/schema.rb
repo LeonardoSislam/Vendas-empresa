@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_143839) do
+ActiveRecord::Schema.define(version: 2019_05_13_180408) do
 
   create_table "vendas", force: :cascade do |t|
     t.string "comprador"
     t.string "nomeproduto"
-    t.text "valoritemunitario"
+    t.float "valoritemunitario"
     t.text "descricaoproduto"
-    t.text "quantidade"
-    t.text "valoritens"
+    t.integer "quantidade"
+    t.float "valoritens"
     t.text "endereço"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
