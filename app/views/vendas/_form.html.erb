@@ -1,57 +1,21 @@
-<script >
-  function id(el) {
-    return document.getElementById( el );
-  }
-  function total( un, qnt ) {
-    return parseFloat(un.replace(',', '.'), 10) * parseFloat(qnt.replace(',', '.'), 10);
-  }
-  window.onload = function() {
-    id('valoritemunitario').addEventListener('keyup', function() {
-      var valoritens = total( this.value , id('quantidade').value );
-      id('valoritens').value = String(valoritens.toFixed(2)).formatMoney();
-    });
-    id('quantidade').addEventListener('keyup', function(){
-      var valoritens = total( id('valoritemunitario').value , this.value );
-      id('valoritens').value = String(valoritens.toFixed(2)).formatMoney();
-    });
-  }
-  String.prototype.formatMoney = function() {
-    var v = this;
-    if(v.indexOf('.') === -1) {
-      v = v.replace(/([\d]+)/, "$1,00");
-    }
-    v = v.replace(/([\d]+)\.([\d]{1})$/, "$1,$20");
-    v = v.replace(/([\d]+)\.([\d]{2})$/, "$1,$2");
-    v = v.replace(/([\d]+)([\d]{3}),([\d]{2})$/, "$1.$2,$3");
-    return v;
-  };
-</script>
-
-<form class="text-center">
-    Valor Unitário: <input id="valoritemunitario" />
-    Quantidade: <input id="quantidade" value="0" />
-    Total: R$ <input id="valoritens" readonly="readonly" />
-
-  </form>
-<br>
-  <%= simple_form_for @venda do |f| %>
+  <%= simple_form_for @venda do |form| %>
       <div class="card border-success mb-3" >
         <div class="card-body ">
           <div class="row ">
-            <%= f.input :comprador, label: 'Nome Comprador', wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
-            <%= f.input :nomeproduto, label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
-            <%= f.input :valoritemunitario, label: 'Valor Unitário (R$)', wrapper_html: { class: 'col-sm-3' } %>
+            <%= form.input :comprador, label: 'Nome Comprador', placeholder:'Nome', wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
+            <%= form.input :nomeproduto, label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
+            <%= form.input :valoritemunitario, label: 'Valor Unitário (R$)', wrapper_html: { class: 'col-sm-3'} %>
           </div>
           <div class="row">
-            <%= f.input :quantidade, label: 'Quantidade', wrapper_html: { class: 'col-sm-3' } %>
-            <%= f.input :valoritens, label: 'Valor Total (R$)', disabled: true, wrapper_html: { class: 'col-sm-3'}%>
-            <%= f.input :endereço, label: 'Endereço Entrega', as: :string, wrapper_html: { class: 'col-sm-3' }%>
+            <%= form.input :quantidade, label: 'Quantidade', wrapper_html: { class: 'col-sm-3' } %>
+            <%= form.input :valoritens, label: 'Valor Total (R$)', disabled: true, wrapper_html: { class: 'col-sm-3'}, hint: 'Valor gerado automaticamente.'%>
+            <%= form.input :endereço, label: 'Endereço Entrega', as: :string, wrapper_html: { class: 'col-sm-3' }%>
           </div>
           <div class="row">
-            <%= f.input :descricaoproduto, label: 'Descrição Produto', wrapper_html: { class: 'col-sm-4' }%>
+            <%= form.input :descricaoproduto, label: 'Descrição Produto', wrapper_html: { class: 'col-sm-4' }%>
           </div>
           <div class="text-center">
-            <%= f.submit 'Salvar compra', class: "btn btn-outline-success" %>
+            <%= form.submit 'Salvar compra', class: 'btn btn-outline-success' %>
           </div>
         </div>
       </div>

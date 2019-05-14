@@ -3,16 +3,12 @@ class VendasController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "123", except: [:index, :show]
 
   def index
-    @venda = Venda.all
+    @venda = Venda.search(params[:search]).page(params[:page]).per(7)
+
   end
 
   def show
     @venda = Venda.find(params[:id])
-      if @venda.nil?
-        @venda = Venda.açç
-        flash.now[:alert] = "Sem Venda"
-        render "new"
-      end
   end
 
   def new
@@ -31,6 +27,9 @@ class VendasController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def finish
   end
 
   def update
