@@ -11,13 +11,28 @@ pt-BR:
     error_notification:
       default_message: "Alguns erros foram encontrados, por favor verifique:"
     # Labels and hints examples
-    # labels:
-    #   password: 'Password'
-    #   user:
-    #     new:
-    #       email: 'E-mail para efetuar o sign in.'
-    #     edit:
-    #       email: 'E-mail.'
-    # hints:
-    #   username: 'User name to sign in.'
-    #   password: 'No special characters, please.'
+    labels:
+      defaults:
+        password: Senha
+        password_confirmation: Confirmar a Senha
+        name: Nome
+      article:
+        title: Título
+        body: Texto
+        published_at: Publicado em
+        category: Categoria
+    hints:
+      defaults:
+        password: 'Mínimo de 8 caracteres.'
+    placeholders:
+      defaults:
+        name: 'Nome'
+        email: 'example@example'
+        password: '****'
+  helpers:
+    submit:
+      create: 'Criar'
+      update: 'Editar'
+      article:
+        create: 'Criar artigo'
+        update: 'Editar artigo'

@@ -1,3 +1,18 @@
-<h2>Dados de Venda </h2>
+<h2>Dados de Venda</h2>
 
-<a href="/vendas"><button type="button" class="button button1">Visualizar lista de compras </button></a>
+
+<% if user_signed_in? %>
+  <ul>
+    <li><%= current_user.email %></li>
+    <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to "alterar senha", edit_user_registration_path %></li>
+    <br>
+    <a href="/vendas"><button type="button" class="button button1">Visualizar lista de compras </button></a>
+  </ul>
+<% else %>
+  <ul>
+    <li><%= link_to "logar", new_user_session_path %></li>
+    <li><%= link_to "novo usuario", new_user_registration_path %></li>
+    <li><%= link_to "Recuperar senha", new_user_password_path %></li>
+  </ul>
+<% end %>

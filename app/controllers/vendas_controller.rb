@@ -2,6 +2,8 @@ class VendasController < ApplicationController
 
   # http_basic_authenticate_with name: "admin", password: "123", except: [:index, :show]
 
+  before_action :authenticate_user!
+
   def index
     @venda = Venda.search(params[:search]).page(params[:page]).per(7)
 

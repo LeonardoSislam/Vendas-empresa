@@ -2,6 +2,8 @@ require 'csv'
 
 class ImportController < ApplicationController
 
+  before_action :authenticate_user!
+  
   def importar
   end
 

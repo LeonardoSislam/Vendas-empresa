@@ -31,10 +31,39 @@
                 <%= link_to 'Importar lista', importar_path, class: "btn btn-outline-success" %>
               </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <!-- <form class="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type="search" placeholder="Buscar comprador..." aria-label="Search">
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            </form> -->
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if user_signed_in? %>
+                  <ul>
+                    <li><%= current_user.email %></li>
+                  </ul>
+                <% end %>
+               </button>
+               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                 <a class="dropdown-item" href="#">Alguma ação</a>
+                 <a class="dropdown-item" href="#">Outra ação</a>
+                 <a class="dropdown-item" href="#">Alguma coisa aqui</a>
+               </div>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <% if user_signed_in? %>
+                  <ul>
+                    <li><%= current_user.email %></li>
+                  </ul>
+                <% end %>
+              </button>
+              <div class="dropdown-menu">
+                <li><%= link_to "Sair", destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to "alterar senha", edit_user_registration_path %></li>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Link separado</a>
+              </div>
+            </div>
         </nav>
       </div>
 
@@ -43,7 +72,7 @@
     <body>
 
       <br>
-      <div class="container-fluid"><%= yield %></div>
+      <div class="container-fluid" ><%= yield %></div>
 
     </body>
 
