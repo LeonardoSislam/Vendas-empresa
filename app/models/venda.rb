@@ -9,7 +9,7 @@ class Venda < ApplicationRecord
   validates :quantidade, presence: true,
                     length: { minimum: 1 }
 
-  validates :endereço, presence: true,
+  validates :endereco, presence: true,
                     length: { minimum: 1 }
 
     scope :search, ->(comprador) { where("comprador like ?", "%#{comprador}%") }
