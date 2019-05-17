@@ -1,6 +1,5 @@
 class VendasController < ApplicationController
 
-  # http_basic_authenticate_with name: "admin", password: "123", except: [:index, :show]
 
   skip_before_action :authenticate_user!, only: :index
 
@@ -53,6 +52,6 @@ class VendasController < ApplicationController
 
   private
     def article_params
-      params.require(:venda).permit(:comprador, :nomeproduto, :valoritemunitario, :descricaoproduto, :quantidade, :valoritens, :endereço)
+      params.require(:venda).permit(:comprador, :nomeproduto, :valoritemunitario, :descricaoproduto, :quantidade, :valoritens, :endereco)
     end
 end
