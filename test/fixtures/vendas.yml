@@ -10,8 +10,8 @@ one:
   endereco: rua teste
 
 two:
-  comprador: leonardo
-  nomeproduto: leonardo
+  comprador: rafael
+  nomeproduto: teste
   valoritemunitario: 22.00
   descricaoproduto: teste
   quantidade: 4
