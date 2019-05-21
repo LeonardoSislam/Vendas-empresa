@@ -10,7 +10,7 @@
 
       <div>
         <strong>Nome do Produto:</strong>
-        <%= @venda.nomeproduto %>
+        <%= @venda.produto.try(:nomeproduto) %>
       </div>
 
       <div>

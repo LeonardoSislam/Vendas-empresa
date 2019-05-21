@@ -3,7 +3,9 @@
         <div class="card-body ">
           <div class="row ">
             <%= form.input :comprador, label: 'Nome Comprador', placeholder:'Nome', wrapper_html: { class: 'col-sm-3' }, hint: 'You cannot change your username.'  %>
-            <%= form.input :nomeproduto, label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
+
+            <%= form.association :produto, label_method: :nomeproduto , prompt: "selecione o produto", label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
+
             <%= form.input :valoritemunitario, label: 'Valor Unitário (R$)', wrapper_html: { class: 'col-sm-3'} %>
           </div>
           <div class="row">

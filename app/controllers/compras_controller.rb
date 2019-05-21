@@ -69,6 +69,6 @@ class ComprasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def compra_params
-      params.require(:compra).permit(:comprador, :produto, :valor, :quantidade)
+      params.require(:compra).permit(:comprador, :produto_id, :valor, :quantidade)
     end
 end

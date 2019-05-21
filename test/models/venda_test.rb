@@ -18,6 +18,10 @@ class VendaTest < ActiveSupport::TestCase
       @venda = vendas(:one)
       assert_equal [@venda], Venda.search("d")
   end
+
+  test '*** Search invalid ***' do
+      assert_equal [], Venda.search("z")
+  end
 end
 
     # scope = :search, ->(comprador) { where("comprador like ?", "%#{comprador}%") }

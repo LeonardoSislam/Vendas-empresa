@@ -1,24 +1,36 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Comprador:</strong>
-  <%= @compra.comprador %>
-</p>
+<h2>Detalhe</h2>
 
-<p>
-  <strong>Produto:</strong>
-  <%= @compra.produto %>
-</p>
 
-<p>
-  <strong>Valor:</strong>
-  <%= @compra.valor %>
-</p>
+<form>
+  <div class="card border-success mb-3 ">
+    <div class="card-body ">
+      <div>
+        <strong>Comprador:</strong>
+        <%= @compra.comprador %>
+      </div>
 
-<p>
-  <strong>Quantidade:</strong>
-  <%= @compra.quantidade %>
-</p>
+      <div>
+        <strong>Produto:</strong>
+        <%= @compra.produto.try(:nomeproduto) %>
+      </div>
 
-<%= link_to 'Edit', edit_compra_path(@compra) %> |
-<%= link_to 'Back', compras_path %>
+      <div>
+        <strong>Valor:</strong>
+        <%= @compra.valor %>
+      </div>
+
+      <div>
+        <strong>Quantidade:</strong>
+        <%= @compra.quantidade %>
+      </div>
+
+      <br>
+      <div class="text-center">
+        <%= link_to 'Voltar', compras_path, class: "btn btn-outline-success" %>
+        <%= link_to 'Editar', edit_compra_path(@compra), class: "btn btn-outline-success" %>
+      </div>
+    </div>
+  </div>
+</form>

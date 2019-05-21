@@ -52,6 +52,6 @@ class VendasController < ApplicationController
 
   private
     def article_params
-      params.require(:venda).permit(:comprador, :nomeproduto, :valoritemunitario, :descricaoproduto, :quantidade, :valoritens, :endereco)
+      params.require(:venda).permit(:comprador, :produto_id, :valoritemunitario, :descricaoproduto, :quantidade, :valoritens, :endereco)
     end
 end

@@ -27,7 +27,7 @@
   <% @venda.each do |vendas| %>
     <tr>
       <td><%= vendas.comprador %></td>
-      <td><%= vendas.nomeproduto %></td>
+      <td><%= vendas.produto.try(:nomeproduto)%></td>
       <td> R$ <%= vendas.valoritemunitario %></td>
       <td><%= vendas.descricaoproduto %></td>
       <td><%= vendas.quantidade %> uni.</td>
