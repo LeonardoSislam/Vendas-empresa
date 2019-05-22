@@ -21,20 +21,48 @@
       <div>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
               <li class="nav-item mr-sm-2">
-                <%= link_to 'Inicio', vendas_path, class: "btn btn-outline-success" %>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Vendas
+                  </button>
+                  <div class="dropdown-menu text-center dropdown-menu-left" >
+                    <%= link_to 'Lista Vendas', vendas_path, class:"dropdown-item"%>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to 'Realizar nova compra', new_venda_path, class:"dropdown-item" %>
+                  </div>
+                </div>
               </li>
+
               <li class="nav-item mr-sm-2">
-                <%= link_to 'Realizar nova compra', new_venda_path, class: "btn btn-outline-success" %>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Compras
+                  </button>
+                  <div class="dropdown-menu text-center dropdown-menu-left" >
+                    <%= link_to 'Lista Compras', compras_path, class:"dropdown-item"%>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to 'Nova Compra', new_compra_path, class:"dropdown-item" %>
+                  </div>
+                </div>
               </li>
+
+              <li class="nav-item mr-sm-2">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Produtos
+                  </button>
+                  <div class="dropdown-menu text-center dropdown-menu-left" >
+                    <%= link_to 'Lista Produtos', produtos_path, class:"dropdown-item"%>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to 'Novo Produto', new_produto_path, class:"dropdown-item"%>
+                  </div>
+                </div>
+              </li>
+
               <li class="nav-item mr-sm-2">
                 <%= link_to 'Importar lista', importar_path, class: "btn btn-outline-success" %>
-              </li>
-              <li class="nav-item mr-sm-2">
-                <%= link_to 'Compras', compras_path, class: "btn btn-outline-success" %>
-              </li>
-              <li class="nav-item mr-sm-2">
-                <%= link_to 'Produtos', produtos_path, class: "btn btn-outline-success" %>
               </li>
             </ul>
 
@@ -50,18 +78,18 @@
                 </div>
               </div>
             <% else %>
-            <div class="btn-group ">
-              <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Login
-              </button>
-              <div class="dropdown-menu text-center dropdown-menu-right" >
-                <%= link_to "logar", new_user_session_path, class:"dropdown-item" %>
-                  <div class="dropdown-divider"></div>
-                <%= link_to "Criar conta", new_user_registration_path, class:"dropdown-item" %>
+              <div class="btn-group ">
+                <button type="button" class="btn btn-outline-success dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Login
+                </button>
+                <div class="dropdown-menu text-center dropdown-menu-right" >
+                  <%= link_to "logar", new_user_session_path, class:"dropdown-item" %>
                     <div class="dropdown-divider"></div>
-                <%= link_to "Esqueceu a senha ?", new_user_password_path, class:"dropdown-item" %>
+                  <%= link_to "Criar conta", new_user_registration_path, class:"dropdown-item" %>
+                      <div class="dropdown-divider"></div>
+                  <%= link_to "Esqueceu a senha ?", new_user_password_path, class:"dropdown-item" %>
+                </div>
               </div>
-            </div>
             <% end %>
         </nav>
       </div>

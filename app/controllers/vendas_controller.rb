@@ -4,8 +4,7 @@ class VendasController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @venda = Venda.search(params[:search]).page(params[:page]).per(7)
-
+    @venda = Venda.search(params[:search]).page(params[:page]).per(2)
   end
 
   def show

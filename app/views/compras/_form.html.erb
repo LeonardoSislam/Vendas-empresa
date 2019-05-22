@@ -1,20 +1,20 @@
-
 <%= simple_form_for @compra do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
     <div class="card border-success mb-3" >
       <div class="card-body ">
         <div class="row">
-          <%= f.input :comprador, wrapper_html: { class: 'col-sm-3' }%>
-          <%= f.association :produto, label_method: :nomeproduto , prompt: "selecione o produto", label: 'Nome Produto', wrapper_html: { class: 'col-sm-3' }%>
+          <%= f.input :comprador, placeholder:'Loja / Pessoa fisica', wrapper_html: { class: 'col-sm-4' }%>
+          <%= f.association :produto, label_method: :nomeproduto , prompt: "selecione o produto", label: 'Nome Produto', wrapper_html: { class: 'col-sm-4' }%>
         </div>
         <div class="row">
-          <%= f.input :valor , wrapper_html: { class: 'col-sm-3' }%>
-          <%= f.input :quantidade , wrapper_html: { class: 'col-sm-3' }%>
+          <%= f.input :valor , wrapper_html: { class: 'col-sm-4' }%>
+          <%= f.input :quantidade , wrapper_html: { class: 'col-sm-4' }%>
         </div>
 
-        <div class="form-actions">
-          <%= f.button :submit %>
+        <div class="text-center">
+          <%= f.submit 'Salvar compra', class: 'btn btn-outline-success' %>
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-<h2>Detalhe Compra</h2>
+<h2>Detalhe Venda</h2>
 
 <form>
   <div class="card border-success mb-3 ">
@@ -41,7 +41,7 @@
       <br>
 
       <div class="text-center">
-        <%= link_to 'Voltar', vendas_path, class: "btn btn-outline-success" %>
+        <%= link_to 'Voltar', vendas_path(@venda), class: "btn btn-outline-success" %>
         <%= link_to 'Editar', edit_venda_path(@venda), class: "btn btn-outline-success" %>
       </div>
     </div>

@@ -1,7 +1,8 @@
+<h2>Detalhes de Compras</h2>
+
 <p id="notice"><%= notice %></p>
 
-<h2>Detalhe</h2>
-
+<br>
 
 <form>
   <div class="card border-success mb-3 ">
@@ -28,7 +29,7 @@
 
       <br>
       <div class="text-center">
-        <%= link_to 'Voltar', compras_path, class: "btn btn-outline-success" %>
+        <%= link_to 'Voltar', compras_path(@compra), class: "btn btn-outline-success" %>
         <%= link_to 'Editar', edit_compra_path(@compra), class: "btn btn-outline-success" %>
       </div>
     </div>

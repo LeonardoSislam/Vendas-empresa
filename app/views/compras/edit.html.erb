@@ -1,6 +1,7 @@
-<h1>Editing Compra</h1>
+<h2>Editar Compra</h2>
+
+<br>
 
 <%= render 'form', compra: @compra %>
 
-<%= link_to 'Show', @compra %> |
-<%= link_to 'Back', compras_path %>
+<%= link_to 'Voltar', compras_path(@compra), class: "btn btn-outline-success"%>
