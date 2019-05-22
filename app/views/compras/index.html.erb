@@ -34,11 +34,10 @@
         </td>
       </tr>
     <% end %>
+    <%= page_entries_info @compras %>
   </tbody>
 </table>
 <br><br>
-
-<%= page_entries_info @compras %>
 
 <div class="container pagination justify-content-end ">
   <%= paginate @compras,

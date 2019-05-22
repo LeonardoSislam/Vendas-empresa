@@ -202,7 +202,6 @@ pt-BR:
           mb: MB
           pb: PB
           tb: TB
-    percentage:<%= page_entries_info @compras %>
       format:
         delimiter: "."
         format: "%n%"

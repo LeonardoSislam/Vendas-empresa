@@ -4,7 +4,7 @@ class ComprasController < ApplicationController
   # GET /compras
   # GET /compras.json
   def index
-    @compras = Compra.order(:id).page(params[:page]).per(1)
+    @compras = Compra.order(:id).page(params[:page]).per(2)
   end
 
   # GET /compras/1
